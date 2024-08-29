@@ -26,7 +26,9 @@ export class LoginComponent {
           alert("Login Funcionou")
           this.router.navigateByUrl('')  
       },
-      error: () => alert("Senha ou usuário inv")
+
+      error: (res:any) => alert("Senha ou usuário inválidos")
+
     })
   }
 
