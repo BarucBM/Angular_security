@@ -1,0 +1,12 @@
+*{
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+    
+}
+
+button{
+    background-color: black;
+}

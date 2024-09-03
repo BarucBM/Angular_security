@@ -2,18 +2,18 @@ import { Component, inject, NgModule } from '@angular/core';
 import { Login } from '../../models/login';
 import {FormsModule} from '@angular/forms'
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterOutlet],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   login: Login = {
-    email: "",
+    login: "",
     password: ""
   }
 
@@ -22,9 +22,9 @@ export class LoginComponent {
   onLogin(){
     this.authService.login(this.login).subscribe({
       next: (res:any)=> {
-          console.log(res)
+          localStorage.setItem("token", res.token)
           alert("Login Funcionou")
-          this.router.navigateByUrl('')  
+          this.router.navigateByUrl('home')  
       },
 
       error: (res:any) => alert("Senha ou usuário inválidos")

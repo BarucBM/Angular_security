@@ -1,0 +1,15 @@
+
+<button (click)="getConsultations()">CARREGAR CONSULTAS</button>
+<ul>
+<li *ngFor="let consulta of consultations" class="card">
+    <div class="img-block">
+        <p class="card-description">{{consulta.reason}}</p>
+        <p class="card-description">{{consulta.diagnosis}}</p>
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">{{consulta.date | date: 'dd/MM/yyyy'}}</h2>
+      <p class="card-description">{{consulta.doctorName}}</p>
+      <p class="card-button">{{consulta.patientName}}</p>
+    </div>
+  </li>
+</ul>

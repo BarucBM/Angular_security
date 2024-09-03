@@ -7,14 +7,17 @@ import { Login } from '../models/login';
 })
 export class AuthService {
 
-  url = "https://api.escuelajs.co/api/v1/auth/"
-
-
+  url = "http://localhost:8080/"
   
   constructor(private httpClient: HttpClient) { }
 
   login(login:Login):Observable<Login> {
-    return this.httpClient.post<Login>(this.url+"login",login)
+    return this.httpClient.post<Login>(this.url+"auth/login",login)
+  }
+
+  logout(){
+     this.httpClient.post(this.url+"logout", {})
+     localStorage.setItem("token", "")
   }
 
 }
